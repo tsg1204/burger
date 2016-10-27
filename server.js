@@ -25,4 +25,4 @@ console.log('\nserver.js creating connection')
 var port = 3000;
 app.listen(port);
 
-console.log('\nserver.js creating connection')
+console.log('\nserver.js connection created')

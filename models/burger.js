@@ -1,19 +1,24 @@
 var orm = require('../config/orm.js');
 
+var table = "burgers";
+
 var burger = {
 	all: function (cb) {
-		orm.all('burgers', function (res) {
+		console.log('\nburger.all in burger.js');
+		orm.all(table, function (res) {
+			console.log('\nburger.js cb', res);
 			cb(res);
 		});
 	},
 
     create: function (cols, vals, cb) {
-		orm.create('burgers', cols, vals, function (res) {
+    	console.log('\nburger.create in burger.js');
+		orm.create(table, cols, vals, function (res) {
 			cb(res);
 		});
 	},
     update: function (objColVals, condition, cb) {
-		orm.update('burgers', objColVals, condition, function (res) {
+		orm.update(table, objColVals, condition, function (res) {
 			cb(res);
 		});
 	}
