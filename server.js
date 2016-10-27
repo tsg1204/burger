@@ -17,8 +17,8 @@ app.engine('handlebars', exphbs({
 }));
 app.set('view engine', 'handlebars');
 
-var routes = require('./controllers/burgers_controller.js');
-app.use('/', routes);
+var router = require('./controllers/burgers_controller.js');
+app.use('/', router);
 
 console.log('\nserver.js creating connection')
 
