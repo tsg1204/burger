@@ -12,10 +12,11 @@ router.get('/', function(req,res) {
 });
 
 router.get('/burgers', function(req,res) {
-	console.log("\nrouter.get burgers");
+	//console.log("\nrouter.get burgers");
 	burger.all(function(data){
+
 		var hbsObject = { burgers: data };
-		console.log('\nhandlebars hbsObject\n', hbsObject);
+		//console.log('\nhandlebars hbsObject\n', hbsObject);
 		res.render('index', hbsObject);
 	});
 });
@@ -29,9 +30,9 @@ router.post('/burgers/create', function(req,res) {
 router.put('/burgers/update/:id', function(req,res) {
 	var condition = 'id = ' + req.params.id;
 
-	console.log('condition', condition);
+	//console.log('condition', condition);
 
-	burger.update({ devoured: req.body.devoured }, condition, function(){
+	burger.update({ 'devoured': 1}, condition, function(){
 		res.redirect('/burgers');
 	});
 });

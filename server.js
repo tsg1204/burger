@@ -20,9 +20,9 @@ app.set('view engine', 'handlebars');
 var router = require('./controllers/burgers_controller.js');
 app.use('/', router);
 
-console.log('\nserver.js creating connection')
+//console.log('\nserver.js creating connection')
 
 var port = 3000;
 app.listen(port);
 
-console.log('\nserver.js connection created')
+//console.log('\nserver.js connection created')

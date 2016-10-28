@@ -27,8 +27,12 @@ var orm = {
      all: function(table, cb) {
         var queryString = 'SELECT * FROM ' + table + ';';
         connection.query(queryString, function(err, result) {
+
+         // console.log(result);
             if (err) throw err;
+
             cb(result);
+            //connection.end();
         });
     },
 
@@ -42,11 +46,12 @@ var orm = {
       queryString = queryString + printQuestionMarks(vals.length);
       queryString = queryString + ') ';
       
-      console.log('\n Create queryString: ', queryString);
-      
+      //console.log('\n Create queryString: ', queryString);
+      //console.log(vals);
       connection.query(queryString, vals, function(err, result) {
         if (err) throw err;
         cb(result);
+        //connection.end();
       });
     },
 
@@ -56,12 +61,13 @@ var orm = {
      queryString = queryString + ' SET ';
      queryString = queryString + objToSql(objColVals);
      queryString = queryString + ' WHERE ';
-     queryString = queryString + condition;
+     queryString = queryString + condition + ';';
 
-     console.log(queryString);
+     //console.log(queryString);
      connection.query(queryString, function(err, result) {
        if (err) throw err;
        cb(result);
+       //connection.end();
      });
    }
 };
